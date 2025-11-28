@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexa Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Estilo para os Botões de Categoria (Pills) */
+        .categorias-scroll {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            padding: 20px 50px;
+            white-space: nowrap;
+            /* Esconder barra de rolagem */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
+        }
+
+        .categorias-scroll::-webkit-scrollbar {
+            display: none;
+            /* Chrome */
+        }
+
+        .cat-btn {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: 30px;
+            padding: 12px 25px;
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .cat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            border-color: #0077A3;
+            color: #0077A3;
+        }
+
+        .cat-btn.active {
+            background-color: #0077A3;
+            color: white;
+            border-color: #0077A3;
+            box-shadow: 0 4px 10px rgba(0, 119, 163, 0.3);
+        }
+
+        .cat-btn i {
+            font-size: 1.1em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <div class="left-group">
+            <i id="menuBtn" class="fas fa-bars"></i>
+            <h2 class="logo">Nexa</h2>
+        </div>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Buscar produtos...">
+            <i class="fas fa-search"></i>
+        </div>
+
+        <div class="right-group">
+            <i class="fa-regular fa-heart"></i>
+            <i class="fa-solid fa-cart-shopping"></i>
+            <a href="login-nexa.html"><i class="fa-regular fa-user"></i></a>
+        </div>
+    </header>
+
+    <!-- MENU LATERAL -->
+    <aside id="sideMenu" class="side-menu">
+        <div class="menu-header">
+            <h3>Menu</h3>
+            <i id="closeMenu" class="fas fa-times"></i>
+        </div>
+        <nav class="side-links">
+            <a href="meu-perfil.html">PERFIL</a>
+            <a href="carrinho.html">CARRINHO</a>
+            <a href="#" id="catBtn">
+                CATEGORIAS <i class="fas fa-chevron-down" id="catIcon" style="float:right;"></i>
+            </a>
+            <div id="catSubMenu" class="submenu">
+                <!-- Preenchido via JS também -->
+            </div>
+            <a id="menuLoja" href="#">SEJA UM VENDEDOR</a>
+            <a href="#">Suporte</a>
+        </nav>
+    </aside>
+
+    <div id="overlay" class="overlay"></div>
+
+    <main>
+        <section class="destaque">
+            <h1>Descubra o melhor da sua região</h1>
+            <p>Conecte-se com lojas locais e encontre produtos incríveis.</p>
+            <a href="#produtosArea" class="botao">Explorar</a>
+        </section>
+
+        <!-- SEÇÃO DE CATEGORIAS (Dinâmica) -->
+        <section class="categorias">
+            <h2 style="padding: 0 50px; margin-bottom: 10px;">Categorias</h2>
+            <div id="containerCategorias" class="categorias-scroll">
+                <!-- JS vai colocar os botões aqui -->
+                <p style="padding-left: 20px; color: #999;">Carregando categorias...</p>
+            </div>
+        </section>
+
+        <section class="produtos" id="produtosArea">
+            <h2 id="tituloSecaoProdutos">Todos os Produtos</h2>
+            <div class="grid-produtos">
+                <!-- Produtos carregados aqui -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2025 Nexa — Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="script.js"></script>
+</body>
+
+</html>

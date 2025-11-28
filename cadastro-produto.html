@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Produto - Nexa</title>
+    <link rel="stylesheet" href="style-cadastro-produto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="simple-header">
+        <h2>Nexa Store</h2>
+        <a href="#" id="btnVoltar" class="btn-voltar">Voltar</a>
+    </header>
+
+    <div class="form-container">
+        <h2 class="form-title">Novo Produto</h2>
+
+        <form id="formProduto">
+            
+            <!-- 1. Nome do Produto -->
+            <div class="input-group">
+                <label>Nome do Produto</label>
+                <input type="text" id="titulo" placeholder="Ex: Tênis Esportivo Nike" required>
+            </div>
+
+            <!-- 2. Descrição -->
+            <div class="input-group">
+                <label>Descrição Detalhada</label>
+                <textarea id="descricao" placeholder="Descreva os detalhes do produto..."></textarea>
+            </div>
+
+            <div style="display: flex; gap: 15px;">
+                <!-- 3. Preço -->
+                <div class="input-group" style="flex: 1;">
+                    <label>Preço (R$)</label>
+                    <input type="number" id="preco" step="0.01" placeholder="0.00" required>
+                </div>
+
+                <!-- 4. Categoria -->
+                <div class="input-group" style="flex: 1;">
+                    <label>Categoria</label>
+                    <select id="categoria" required>
+                        <option value="">Selecione...</option>
+                        <option value="Moda">Moda</option>
+                        <option value="Eletrônicos">Eletrônicos</option>
+                        <option value="Casa">Casa e Decoração</option>
+                        <option value="Beleza">Beleza e Saúde</option>
+                        <option value="Esportes">Esportes</option>
+                        <option value="Pet">Pet Shop</option>
+                        <option value="Brinquedos">Brinquedos</option>
+                        <option value="Livros">Livros</option>
+                        <option value="Papelaria">Papelaria</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 5. Upload de Imagem -->
+            <div class="input-group">
+                <label>Imagem do Produto</label>
+                <!-- Alterado para type="file" -->
+                <input type="file" id="imagemFile" accept="image/*" required>
+                
+                <div class="img-preview">
+                    <span id="previewText">A imagem aparecerá aqui</span>
+                    <img id="previewImg" src="" alt="Pré-visualização">
+                </div>
+                <!-- Campo oculto para guardar o Base64 -->
+                <input type="hidden" id="imagemBase64">
+            </div>
+
+            <button type="submit" class="btn-salvar" id="btnSalvar">Cadastrar Produto</button>
+        </form>
+    </div>
+
+    <script type="module" src="cadastro-produto.js"></script>
+</body>
+</html>

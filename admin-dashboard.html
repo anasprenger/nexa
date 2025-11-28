@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexa - Painel Administrativo</title>
+    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+
+    <header class="admin-header">
+        <h1>Nexa - Administrador</h1>
+        <button id="logoutBtn">Sair</button>
+    </header>
+
+    <main class="admin-container">
+
+        <section class="admin-card" onclick="window.location.href='admin-loja-produtos.html'">
+            <h2>Gerenciar Produtos</h2>
+            <p>Criar, editar e excluir qualquer produto.</p>
+        </section>
+        <br>
+        <br>
+        <section class="admin-card" onclick="window.location.href='admin-usuarios.html'">
+            <h2>Gerenciar Usuários</h2>
+            <p>Ver todos os usuários e alterar permissões.</p>
+        </section>
+        <br>
+        <br>
+        <section class="admin-card" onclick="window.location.href='admin-categorias.html'">
+            <h2>Gerenciar Categorias</h2>
+            <p>Criar, ativar e desativar categorias.</p>
+        </section>
+        <br>
+        <br>
+        <section class="admin-card" onclick="window.location.href='admin-lojas.html'">
+            <h2>Gerenciar Lojas</h2>
+            <p>Ativar/desativar lojas e administrar seus produtos.</p>
+            </div>
+
+
+    </main>
+    <script type="module" src="auth.js"></script>
+    <script type="module" src="script-admin.js"></script>
+</body>
+
+</html>

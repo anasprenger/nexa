@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Lojas - Nexa Admin</title>
+    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="topbar">
+        <h1>Nexa - Gestão de Lojas</h1>
+        <button class="btn-sair" id="btnLogout">Sair</button>
+    </header>
+
+    <main class="container">
+        <h2 class="titulo">Lojas Cadastradas</h2>
+        <p class="subtitulo">Gerencie o status e os produtos de cada parceiro.</p>
+
+        <div id="listaLojas" class="lojas-grid">
+            <p>Carregando lojas...</p>
+        </div>
+    </main>
+
+    <script type="module" src="admin-lojas.js"></script>
+</body>
+</html>

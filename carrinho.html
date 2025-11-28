@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Carrinho - Nexa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        body { padding-top: 90px; background: #f4f4f9; }
+        
+        .cart-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 30px;
+        }
+
+        .cart-items {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+        }
+        .cart-item:last-child { border-bottom: none; }
+
+        .item-img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            border: 1px solid #eee;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+
+        .item-info { flex: 1; }
+        .item-title { font-weight: bold; margin-bottom: 5px; color: #333; }
+        .item-price { color: #0077A3; font-weight: bold; }
+        .item-remove { 
+            color: #e74c3c; 
+            cursor: pointer; 
+            font-size: 0.9rem; 
+            border: none; 
+            background: none; 
+            margin-top: 5px;
+        }
+        .item-remove:hover { text-decoration: underline; }
+
+        .cart-summary {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            height: fit-content;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        .total-row {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid #eee;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .btn-checkout {
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+        .btn-checkout:hover { background: #2ecc71; }
+
+        /* Tela de Sucesso */
+        .success-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(255,255,255,0.95);
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 5000;
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 100px;
+            color: #27ae60;
+            margin-bottom: 20px;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .cart-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Simples -->
+    <header>
+        <div class="left-group">
+            <a href="index.html" style="color: white; font-size: 1.2rem; margin-right: 15px;"><i class="fas fa-arrow-left"></i></a>
+            <h2 class="logo">Carrinho</h2>
+        </div>
+    </header>
+
+    <div class="cart-container" id="cartContent">
+        <!-- Lista de Itens -->
+        <div class="cart-items" id="cartList">
+            <!-- JS Preenche -->
+        </div>
+
+        <!-- Resumo -->
+        <div class="cart-summary">
+            <h3>Resumo do Pedido</h3>
+            <div class="summary-row">
+                <span>Subtotal</span>
+                <span id="subtotal">R$ 0,00</span>
+            </div>
+            <div class="summary-row">
+                <span>Frete</span>
+                <span style="color: #27ae60;">Grátis</span>
+            </div>
+            <div class="total-row">
+                <span>Total</span>
+                <span id="total">R$ 0,00</span>
+            </div>
+            <button class="btn-checkout" id="btnFinalizar">FINALIZAR COMPRA</button>
+        </div>
+    </div>
+
+    <!-- Mensagem de Carrinho Vazio -->
+    <div id="emptyCart" style="display: none; text-align: center; margin-top: 100px;">
+        <i class="fas fa-shopping-cart fa-4x" style="color: #ccc; margin-bottom: 20px;"></i>
+        <h2>Seu carrinho está vazio</h2>
+        <a href="index.html" class="botao" style="margin-top: 20px; display: inline-block;">Voltar para a Loja</a>
+    </div>
+
+    <!-- Tela de Sucesso Fake -->
+    <div class="success-overlay" id="successScreen">
+        <i class="fas fa-check-circle success-icon"></i>
+        <h2>Pedido Realizado!</h2>
+        <p>Obrigado pela sua compra. Você receberá os detalhes por e-mail.</p>
+        <br>
+        <a href="index.html" class="botao">Continuar Comprando</a>
+    </div>
+
+    <script type="module" src="carrinho.js"></script>
+</body>
+</html>

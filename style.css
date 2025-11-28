@@ -1,0 +1,317 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fafafa;
+    color: #333;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: #0182B0;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #0077A3;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    z-index: 2000;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+header ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+header a:hover {
+    text-decoration: underline;
+}
+/* HEADER */
+.topo {
+    background: #0077A3;
+    padding: 18px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-family: Arial, sans-serif;
+}
+
+/* ESQUERDA */
+.menu-esquerda {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.menu-esquerda i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* GRUPOS */
+.left-group, .right-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.left-group i {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.right-group i {
+    font-size: 22px;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.right-group i:hover {
+    transform: scale(1.15);
+}
+
+/* BARRA DE BUSCA */
+.search-box {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    width: 40%;
+    min-width: 250px;
+    color: #555;
+}
+
+.search-box input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 16px;
+}
+
+.search-box i {
+    color: #0077A3;
+    font-size: 18px;
+}
+
+/* MENU LATERAL */
+.side-menu {
+    position: fixed;
+    top: 0;
+    left: -280px;
+    width: 280px;
+    height: 100vh;
+    background: white;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+    transition: .3s;
+    z-index: 3000;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.side-menu.open {
+    left: 0;
+}
+
+.menu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.menu-header i {
+    cursor: pointer;
+    font-size: 24px;
+}
+
+.side-links a {
+    display: block;
+    padding: 12px 0;
+    font-size: 18px;
+    color: #0077A3;
+    text-decoration: none;
+    border-bottom: 1px solid #eee;
+}
+
+.side-links a:hover {
+    color: #004e6b;
+}
+
+/* OVERLAY ESCURO */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 2500;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.submenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    padding-left: 15px;
+}
+
+.submenu a {
+    font-size: 16px;
+    padding: 8px 0;
+    display: block;
+    color: #0077A3;
+    border-bottom: 1px solid #eee;
+}
+
+
+body {
+    padding-top: 70px; /* espaço para o header fixo */
+}
+
+/* CENTRO */
+.links-centro {
+    display: flex;
+    gap: 30px;
+}
+
+.links-centro a {
+    color: white;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+/* DIREITA */
+.icones-direita {
+    display: flex;
+    gap: 25px;
+    font-size: 22px;
+}
+
+.icones-direita i {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.icones-direita i:hover {
+    transform: scale(1.15);
+    opacity: 0.85;
+}
+
+
+/* Seção de destaque */
+.destaque {
+    text-align: center;
+    padding: 100px 20px;
+    background: linear-gradient(135deg, #F8C304, #FF329D);
+    color: white;
+}
+
+.destaque h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.destaque p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+}
+
+.botao {
+    background: white;
+    color: #0182B0;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Categorias */
+.categorias {
+    padding: 50px;
+    text-align: center;
+}
+
+.grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 150px;
+    padding: 30px 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+}
+
+/* Produtos */
+.produtos {
+    padding: 50px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.produto{
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 10px 5px;
+}
+
+.grid-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.produto img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.produto h3 {
+    margin-top: 10px;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #0182B0;
+    color: white;
+    margin-top: 50px;
+}

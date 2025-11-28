@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Produtos da Loja - Nexa Admin</title>
+    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1 id="headerTitle">Gerenciar Produtos</h1>
+        <button id="logoutBtn" class="btn-sair">Sair</button>
+    </header>
+
+    <div class="container">
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h2 id="nomeLoja" class="titulo">Carregando loja...</h2>
+            <div>
+                <!-- BOTÃO NOVO AQUI -->
+                <button id="btnAddProduto" class="action-btn" style="background: #27ae60; font-size: 1rem; margin-right: 10px;">
+                    <i class="fas fa-plus"></i> Novo Produto
+                </button>
+                
+                <button id="descontoBtn" class="action-btn" style="background: #e67e22; font-size: 1rem;">
+                    <i class="fas fa-tag"></i> Desconto Geral
+                </button>
+            </div>
+        </div>
+
+        <table class="admin-table">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Preço</th>
+                    <th>Categoria</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="produtosList">
+                <!-- JS preenche aqui -->
+            </tbody>
+        </table>
+    </div>
+
+    <!-- MODAL DE DESCONTO -->
+    <div class="modal-bg" id="modalDesconto">
+        <div class="modal-box">
+            <h3>Aplicar desconto geral</h3>
+            <form id="formDesconto">
+                <label>Porcentagem (%)</label>
+                <input type="number" id="descontoPercentual" placeholder="Ex: 10" required>
+
+                <label>Início</label>
+                <input type="date" id="descontoInicio" required>
+
+                <label>Fim</label>
+                <input type="date" id="descontoFim" required>
+
+                <div class="modal-actions">
+                    <button type="button" class="cancelar-btn" id="cancelarModal">Cancelar</button>
+                    <button type="submit" class="salvar-btn">Salvar</button>
+                </div>
+            </form>
+            <button id="removerDesconto">Remover Desconto Existente</button>
+        </div>
+    </div>
+
+    <script type="module" src="admin-loja-produtos.js"></script>
+</body>
+</html>

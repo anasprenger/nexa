@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - Nexa</title>
+    <link rel="stylesheet" href="style.css"> <!-- Usando o estilo principal agora -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Ajustes específicos para o container de perfil dentro do estilo global */
+        body {
+            padding-top: 80px;
+            /* Espaço para o header fixo */
+            background-color: #fafafa;
+        }
+
+        .profile-container {
+            max-width: 1100px;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 30px;
+            padding: 0 20px;
+            min-height: 60vh;
+        }
+
+        /* Sidebar estilo cartão */
+        .profile-sidebar {
+            background: white;
+            border-radius: 15px;
+            padding: 30px 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            height: fit-content;
+            border: 1px solid #eee;
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #0077A3, #005f82);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            margin: 0 auto 15px;
+            box-shadow: 0 4px 10px rgba(0, 119, 163, 0.3);
+        }
+
+        .profile-name {
+            font-weight: 700;
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .profile-role {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #fff;
+            background: #aaa;
+            padding: 5px 12px;
+            border-radius: 20px;
+            display: inline-block;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .profile-menu {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .profile-menu button {
+            width: 100%;
+            padding: 12px 15px;
+            background: transparent;
+            border: none;
+            text-align: left;
+            font-size: 1rem;
+            color: #555;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 500;
+        }
+
+        .profile-menu button:hover {
+            background: #f0f8ff;
+            color: #0077A3;
+            transform: translateX(5px);
+        }
+
+        .profile-menu button.active {
+            background: #0077A3;
+            color: white;
+            box-shadow: 0 4px 10px rgba(0, 119, 163, 0.2);
+        }
+
+        /* Conteúdo Principal */
+        .profile-content {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #eee;
+        }
+
+        .tab-section {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+
+        .tab-section.active {
+            display: block;
+        }
+
+        .section-header {
+            border-bottom: 2px solid #f0f2f5;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-header h2 {
+            margin: 0;
+            color: #0077A3;
+            font-size: 1.5rem;
+        }
+
+        .section-header i {
+            font-size: 1.5rem;
+            color: #0077A3;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #fafafa;
+            padding: 15px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+        }
+
+        .info-card label {
+            display: block;
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .info-card div {
+            font-size: 1.1rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .profile-container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-sidebar {
+                margin-bottom: 20px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER IGUAL AO DA HOME -->
+    <header>
+        <div class="left-group">
+            <!-- Botão de voltar simples em vez de menu hambúrguer para não confundir -->
+            <a href="index.html" style="color: white; font-size: 1.2rem; margin-right: 15px;">
+                <i class="fas fa-arrow-left"></i>
+            </a>
+            <h2 class="logo">Nexa</h2>
+        </div>
+
+        <div style="color: white; font-weight: 500;">
+            Área do Cliente
+        </div>
+    </header>
+
+    <div class="profile-container">
+
+        <!-- SIDEBAR -->
+        <aside class="profile-sidebar">
+            <div class="profile-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="profile-name" id="userName">Carregando...</div>
+            <div class="profile-role" id="userRole">...</div>
+
+            <nav class="profile-menu">
+                <button class="active" onclick="showTab('dados')"><i class="fas fa-id-card"></i> Meus Dados</button>
+                <button onclick="showTab('pedidos')"><i class="fas fa-box-open"></i> Meus Pedidos</button>
+                <button onclick="showTab('vistos')"><i class="fas fa-history"></i> Vistos Recentemente</button>
+                <div style="height: 20px;"></div>
+                <button onclick="logout()" style="color: #e74c3c; border: 1px solid #ffebee;"><i
+                        class="fas fa-sign-out-alt"></i> Sair da Conta</button>
+            </nav>
+        </aside>
+
+        <!-- CONTEÚDO -->
+        <main class="profile-content">
+
+            <!-- ABA 1: DADOS -->
+            <div id="dados" class="tab-section active">
+                <div class="section-header">
+                    <i class="fas fa-user-circle"></i>
+                    <h2>Dados Pessoais</h2>
+                </div>
+
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Nome Completo</label>
+                        <div id="displayNome">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>Email de Acesso</label>
+                        <div id="displayEmail">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>Tipo de Conta</label>
+                        <div id="displayTipo">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>Cliente Desde</label>
+                        <div id="displayData">-</div>
+                    </div>
+                </div>
+
+                <div class="section-header" style="margin-top: 40px;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h2>Endereço Principal</h2>
+                </div>
+                <div class="info-grid">
+                    <div class="info-card">
+                        <label>Rua</label>
+                        <div id="displayRua">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>Bairro</label>
+                        <div id="displayBairro">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>Cidade/Estado</label>
+                        <div id="displayCidade">-</div>
+                    </div>
+                    <div class="info-card">
+                        <label>CEP</label>
+                        <div id="displayCep">-</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ABA 2: PEDIDOS -->
+            <div id="pedidos" class="tab-section">
+                <div class="section-header">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h2>Meus Pedidos</h2>
+                </div>
+                <div style="text-align: center; padding: 60px 0; color: #999;">
+                    <i class="fas fa-box-open fa-4x" style="color: #eee; margin-bottom: 20px;"></i>
+                    <p>Você ainda não realizou nenhuma compra.</p>
+                    <a href="index.html" style="color: #0077A3; font-weight: bold; text-decoration: none;">Ir às
+                        compras</a>
+                </div>
+            </div>
+
+            <!-- ABA 3: VISTOS -->
+            <div id="vistos" class="tab-section">
+                <div class="section-header">
+                    <i class="fas fa-history"></i>
+                    <h2>Vistos Recentemente</h2>
+                </div>
+                <p style="text-align: center; color: #999; padding: 40px;">
+                    Seu histórico de visualização aparecerá aqui.
+                </p>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- RODAPÉ IGUAL AO DA HOME -->
+    <footer>
+        <p>© 2025 Nexa — Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module" src="meu-perfil.js"></script>
+    <script>
+        function showTab(id) {
+            // Remove classe ativa de todos
+            document.querySelectorAll('.tab-section').forEach(el => el.classList.remove('active'));
+            document.querySelectorAll('.profile-menu button').forEach(el => el.classList.remove('active'));
+
+            // Adiciona ao selecionado
+            document.getElementById(id).classList.add('active');
+
+            // Adiciona estilo ao botão clicado (event.target pode pegar o ícone, então usamos currentTarget no HTML ou buscamos o botão pai)
+            // Aqui vamos buscar pelo texto ou index para simplificar no inline, mas a melhor forma é:
+            const buttons = document.querySelectorAll('.profile-menu button');
+            if (id === 'dados') buttons[0].classList.add('active');
+            if (id === 'pedidos') buttons[1].classList.add('active');
+            if (id === 'vistos') buttons[2].classList.add('active');
+        }
+    </script>
+</body>
+
+</html>

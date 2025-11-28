@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciar Categorias - Nexa</title>
+    <link rel="stylesheet" href="style-admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="admin-header">
+        <h1>Categorias do Sistema</h1>
+        <a href="admin-lojas.html" class="btn-voltar" style="color: white; text-decoration: none;">Voltar ao Painel</a>
+    </header>
+
+    <main class="container">
+        
+        <!-- Formulário de Criação -->
+        <div class="admin-card" style="margin-bottom: 30px;">
+            <h3 class="titulo">Nova Categoria</h3>
+            <form id="formCategoria" style="display: flex; gap: 10px; align-items: flex-end;">
+                <div style="flex: 1;">
+                    <label>Nome da Categoria</label>
+                    <input type="text" id="catNome" class="input-campo" style="width: 100%; padding: 10px;" placeholder="Ex: Eletrodomésticos" required>
+                </div>
+                <div style="flex: 1;">
+                    <label>Ícone (Link da imagem ou Classe FontAwesome)</label>
+                    <input type="text" id="catIcone" class="input-campo" style="width: 100%; padding: 10px;" placeholder="Ex: fas fa-tv">
+                </div>
+                <button type="submit" class="btn btn-ativar" style="width: auto; height: 40px;">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- Lista -->
+        <h3 class="titulo">Categorias Existentes</h3>
+        <div id="listaCategorias" class="lojas-grid">
+            <p>Carregando...</p>
+        </div>
+
+    </main>
+
+    <script type="module" src="admin-categorias.js"></script>
+</body>
+</html>
